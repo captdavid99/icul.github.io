@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday!</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FDEBD0;
+    color: #626567;
+    text-align: center;
+    padding: 50px;
+  }
+
+  .container {
+    background-color: #FEF9E7;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+  }
+
+  h1 {
+    color: #EC7063;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  .birthday-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .button {
+    background-color: #58D68D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #45B39D;
+  }
+</style>
 </head>
 <body>
-  <div class="birthday-message">
-    <h1>Happy Birthday!</h1>
-    <img src="pentol-ultah.jpg" alt="Happy Birthday">
-    <audio src="birthday-song.mp3" controls autoplay loop></audio>
-  </div>
-  <script src="script.js"></script>
+
+<div class="container">
+  <h1>Happy Birthday!</h1>
+  <p>Dear Friend, wishing you a day filled with love, joy, cake, balloons and all you can dream of. You deserve the best!</p>
+  <img class="birthday-image" src="your-image.jpg" alt="Happy Birthday">
+  <audio id="birthdaySong" src="your-song.mp3"></audio>
+  <button onclick="document.getElementById('birthdaySong').play()">Play Birthday Song</button>
+</div>
+
 </body>
 </html>
