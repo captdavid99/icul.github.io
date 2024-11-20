@@ -54,6 +54,48 @@
 </style>
 </head>
 <body>
+  <style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: black;
+  }
+  .firework {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    animation: explode 700ms ease-out forwards;
+  }
+  @keyframes explode {
+    100% {
+      transform: translate(-50%, -50%) scale(20);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body onclick="createFirework(event)">
+
+<script>
+function createFirework(event) {
+  var firework = document.createElement('div');
+  firework.classList.add('firework');
+  firework.style.left = event.clientX + 'px';
+  firework.style.top = event.clientY + 'px';
+  
+  document.body.appendChild(firework);
+  
+  firework.addEventListener('animationend', function() {
+    firework.parentElement.removeChild(firework);
+  });
+}
+</script>
 
 <div class="container">
   <h1>Happy Birthday Icul!</h1>
