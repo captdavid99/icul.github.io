@@ -5,83 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday!</title>
 <style>
-  /* ... (style sebelumnya) ... */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FDEBD0;
+    color: #626567;
+    text-align: center;
+    padding: 50px;
+  }
 
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+  .container {
+    background-color: #FEF9E7;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+  }
+
+  h1 {
+    color: #EC7063;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  .birthday-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .button {
+    background-color: #58D68D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #45B39D;
   }
 </style>
 </head>
 <body>
-  
-<canvas id="fireworksCanvas"></canvas> <!-- Tempat untuk kembang api -->
 
 <div class="container">
-  <h1>Happy Birthday Icul!</h1>
-  <p>Happy Birthday! 🎉</p>
+  <h1>Happy Birthday!</h1>
+  <p>Happy Birthday! 🎉 </p>
   <p>May your day be filled with joy, laughter, and all the moments that make life so special. Wishing you a year ahead that's as wonderful as you are!</p>
   <img class="birthday-image" src="birthday-birthday-party.gif" alt="Happy Birthday">
   <audio id="birthdaySong" src="musik-ultah.mp3"></audio>
   <button onclick="document.getElementById('birthdaySong').play()">Play Birthday Song</button>
 </div>
-
-<script>
-// Script untuk kembang api
-const canvas = document.getElementById('fireworksCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function Firework() {
-  this.x = random(0, canvas.width);
-  this.y = canvas.height;
-  this.sx = this.x;
-  this.sy = this.y;
-  this.size = random(1, 4);
-  this.speedY = random(-11, -8);
-  this.color = 'hsl(' + random(0, 360) + ',100%,50%)';
-  this.gravity = 0.98;
-  this.friction = 0.85;
-  this.resistance = random(0, 5);
-  this.update = function() {
-    this.speedY *= this.friction;
-    this.y += this.speedY;
-    this.speedY += this.gravity - this.resistance;
-  };
-  this.draw = function() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-    ctx.closePath();
-  };
-}
-
-let fireworks = [];
-
-function animate() {
-  requestAnimationFrame(animate);
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  fireworks.push(new Firework());
-  for (let i = 0; i < fireworks.length; i++) {
-    fireworks[i].update();
-    fireworks[i].draw();
-    if (fireworks[i].y < 0 || fireworks[i].y > canvas.height) {
-      fireworks.splice(i, 1);
-    }
-  }
-}
-
-animate();
-</script>
 
 </body>
 </html>
